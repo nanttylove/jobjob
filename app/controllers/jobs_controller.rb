@@ -2,7 +2,8 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_same_user, only: [:edit, :update, :destroy]
-  before_filter :require_user, only: [:edit, :new, :create, :update, :destroy]
+  before_action :check_has_company, except: [:index, :show]
+  before_filter :require_user, except: [:index, :show]
 
   respond_to :html
 
@@ -63,6 +64,13 @@ class JobsController < ApplicationController
     def check_same_user
       unless current_user.id == @job.user_id
         flash[:alert] = "ไม่สามารถแก้ไขประกาศงานที่ไม่ใช่ของคุณได้"
+        redirect_to "/" and return
+      end
+    end
+
+    def check_has_company
+      unless current_user.company != nil
+        flash[:alert] = "กรุณากรอกข้อมูลบริษัทก่อนประกาศงาน"
         redirect_to "/" and return
       end
     end
