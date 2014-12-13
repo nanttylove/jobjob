@@ -1,0 +1,172 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">ประกาศงาน</h1>
+      </div>
+      <div class="panel-body">
+
+      <%= form_for(@job, html: {class: "form-horizontal"}) do |f| %>
+        <% if @job.errors.any? %>
+          <div class="alert alert-warning">
+            <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+            <ul>
+            <% @job.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!--
+        <div class="field">
+          <%= f.label :user_id %><br>
+          <%= f.number_field :user_id %>
+        </div>
+        -->
+
+        <div class="form-group">
+          <%= f.label :sex_ids, "เพศที่เปิดรับ", class: "col-md-4" %>
+          <%#= collection_check_boxes(:job, :sex_ids, Sex.all, :id, :name) %>
+          <div class="col-md-6">
+            <%= f.collection_check_boxes(:sex_ids, Sex.all, :id, :name) do |b| %>
+              <div class="checkbox">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :disability_ids, "ความพิการที่เปิดรับ", class: "col-md-4" %>
+          <%#= collection_check_boxes(:job, :disability_ids, Disability.all, :id, :name) %>
+          <div class="col-md-6">
+            <%= f.collection_check_boxes(:disability_ids, Disability.all, :id, :name) do |b| %>
+              <div class="checkbox">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :welfare_ids, "สวัสดิการ", class: "col-md-4" %>
+          <%#= collection_check_boxes(:job, :welfare_ids, Welfare.all, :id, :name) %>
+          <div class="col-md-6">
+            <%= f.collection_check_boxes(:welfare_ids, Welfare.all, :id, :name) do |b| %>
+              <div class="checkbox">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+  
+        <!--
+        <div class="field">
+          <%= f.label :organizationname %><br>
+          <%= f.text_field :organizationname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :branch %><br>
+          <%= f.text_field :branch %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address %><br>
+          <%= f.text_area :address %>
+        </div>
+        -->
+  
+        <div class="form-group">
+          <%= f.label :province_id, "จังหวัด", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name, @job.province_id), select: f.object.province_id %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :education, "ระดับการศึกษา", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.select :education, options_for_select(([ "ต่ำกว่าประถมศึกษา", "ประถมศึกษา", "มัธมศึกษาตอนต้น", "มัธยมศึกษาตอนปลาย", "ปวช", "ปวส", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่นๆ" ]), @job.education) %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :age, "อายุ", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.select :age, options_for_select(([ "15-20 ปี", "21-25 ปี", "26-30 ปี", "31-35 ปี", "36-40 ปี", "41-45 ปี", "45 ปีขึ้นไป" ]), @job.age) %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :position, "ตำแหน่งที่เปิดรับ", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_field :position, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :amount, "อัตราที่เปิดรับ", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.number_field :amount %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :info, "รายละเอียดงาน", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_area :info, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :jobtype_id, "ประเภทงาน", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.select :jobtype_id, options_from_collection_for_select(Jobtype.all, :id, :name, @job.jobtype_id), select: f.object.jobtype_id %>            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :wage, "ค่าตอยแทน", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.select :wage, options_for_select(([ "ต่ำกว่า 7500", "7500-10,000", "10,000-15,000", "15,000-20,000", "20,000-25,000", "มากกว่า 25,000" ]), @job.wage) %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :document, "เอกสารที่ต้องใช้", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_area :document, rows: 5, class: "form-control" %>
+          </div>          
+        </div>
+
+        <div class="form-group">
+          <%= f.label :apply, "วิธีการสมัคร", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_area :apply, rows: 5, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+            <%#= f.submit %>
+            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+              <span class="glyphicon glyphicon-edit"></span> บันทึกข้อมูลประกาศงาน
+            <% end %>            
+          </div>
+        </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

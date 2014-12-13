@@ -1,0 +1,73 @@
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <li><%= link_to "หน้าแรก", root_path %></li>
+            <li class="active"><%= "แก้ไขบัญชีผู้ใช้" %></li>
+          </ol>
+        </div>
+      </div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">แก้ไขบัญชีผู้ใช้</h1>
+      </div>
+      <div class="panel-body">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email, " อีเมล", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "อีเมล" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>กำลังรอคำยืนยันสำหรับ: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :password, "รหัสผ่าน (ปล่อยว่างถ้าไม่ต้องการเปลี่ยน)", class: "col-md-4" %>
+          <div class="col-md-6">
+            <% if @validatable %>
+              <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control required", placeholder: "รหัสผ่าน" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "ยืนยันรหัสผ่าน", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control required", placeholder: "ยืนยันรหัสผ่าน" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, "รหัสผ่านปัจจุบัน (ใสรหัสผ่านปัจจุบันเพื่อยืนยันการเปลี่ยนแปลง", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.password_field :current_password, autocomplete: "off", class: "form-control required", placeholder: "ยืนยันรหัสผ่าน" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+            <%= f.submit "ยืนยัน", class: "btn btn-primary" %>
+          </div>
+        </div>
+
+      <% end %>
+
+
+      <div class="col-md-6 col-md-offset-4">
+        <h3>ลบบัญชีผู้ใช้</h3>
+        <p>ต้องการลบบัญชีผู้ใช้หรือไม่? <%= button_to "ลบบัญชีผู้ใช้", registration_path(resource_name), data: { confirm: "ยืนยันการลบบัญชีผู้ใช้" }, method: :delete, class: "btn btn-danger" %></p>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>

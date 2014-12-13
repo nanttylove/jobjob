@@ -1,0 +1,194 @@
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <li><%= link_to "หน้าแรก", root_path %></li>
+            <li><%= link_to "ค้นหางาน", controller: "jobs", action: "index" %></li>
+            <li class="active"><%= "#{@job.position} ที่ #{@job.organizationname}" %></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-8">
+          <div class="paper">
+            <div class="path-header">
+              <h1 class="job_header"><%= @job.position %></h1>
+            </div>
+            <div class="path-body">
+              <h2>รายละเอียดบริษัท</h2>
+              <p>บริษัท <%= @job.organizationname %> สาขา <%= @job.branch %></p>
+            </div>
+            <div class="path-body">
+              <h2>ประเภทความพิการที่เปิดรับ</h2>
+              <p>
+                <ul>
+                <% @job.disabilities.each do |disability| %>
+                  <li><%= disability.name %></li>
+                <% end %>
+                </ul>
+              </p>
+            </div>
+            <div class="path-body">
+              <h2>ตำแหน่งที่เปิดรับ</h2>
+              <p><%= @job.position %></p>
+            </div>
+            <div class="path-body">
+              <h2>รายละเอียดงาน</h2>
+              <p><%= @job.info %></p>
+            </div>
+            <div class="path-body">
+              <h2>อัตราที่เปิดรับ</h2>
+              <p>ไม่จำกัด</p>
+            </div>
+            <div class="path-body">
+              <h2>เพศ</h2>
+              <p>
+                <ul>
+                  <% @job.sexes.each do |sex| %>
+                    <li><%= sex.name %></li>
+                  <% end %>
+                </ul>
+              </p>
+            </div>
+            <div class="path-body">
+              <h2>ระดับการศึกษา</h2>
+              <p><%= @job.education %></p>
+            </div>
+            <div class="path-body">
+              <h2>อายุ</h2>
+              <p><%= @job.age %></p>
+            </div>
+            <div class="path-body">
+              <h2>สวัสดิการ</h2>
+              <p>
+                <ul>
+                <% @job.welfares.each do |welfare| %>
+                  <li><%= welfare.name %></li>
+                <% end %>
+                </ul>
+              </p>
+            </div>
+            <div class="path-body">
+              <h2>ติดต่อได้ที่</h2>
+              <p>
+                <strong>บริษัท:</strong> <%= @job.organizationname %><br>
+                <strong>ที่อยู่:</strong> <%= @job.address %><br>
+                <strong>โทร:</strong> <%= @job.phone %><br>
+                <strong>อีเมล์:</strong> <%= @job.user.email %>
+              </p>
+            </div>
+
+            <div class="path-footer">
+              <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> สมัครงานนี้</button>
+              <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
+              <% if user_signed_in? && current_user.id == @job.user_id %>
+                <%= link_to edit_job_path, class: "btn btn-warning" do %>
+                  <span class="glyphicon glyphicon-edit"></span> แก้ไขประกาศงาน
+                <% end %>
+                <%= link_to @job, method: :delete, data: {confirm: 'ต้องการลบประกาศงานหรือไม่?'}, class: "btn btn-danger" do %>
+                  <span class="glyphicon glyphicon-trash"></span> ลบ
+                <% end %>
+              <% end %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+
+<!--
+<p>
+  <strong>User:</strong>
+  <%= @job.user_id %>
+</p>
+
+<p>
+  <strong>Sex ids:</strong>
+  <ul>
+    <% @job.sexes.each do |sex| %>
+      <li><%= sex.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Disability ids:</strong>
+  <ul>
+    <% @job.disabilities.each do |disability| %>
+      <li><%= disability.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Welfare ids:</strong>
+  <ul>
+    <% @job.welfares.each do |welfare| %>    
+     <li><%= welfare.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Organizationname:</strong>
+  <%= @job.organizationname %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @job.branch %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @job.address %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @job.province.name %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @job.education %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @job.age %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @job.position %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @job.info %>
+</p>
+
+<p>
+  <strong>Jobtype:</strong>
+  <%= @job.jobtype_id %>
+</p>
+
+<p>
+  <strong>Wage:</strong>
+  <%= @job.wage %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @job.document %>
+</p>
+
+<p>
+  <strong>Apply:</strong>
+  <%= @job.apply %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
+-->

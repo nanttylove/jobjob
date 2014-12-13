@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  sex_ids: 1
+  disability_ids: 1
+  welfare_ids: 1
+  organizationname: MyString
+  branch: MyString
+  address: MyText
+  province_id: 1
+  education: MyString
+  age: MyString
+  position: MyString
+  info: MyText
+  jobtype_id: 1
+  wage: MyString
+  document: MyText
+  apply: MyText
+
+two:
+  user_id: 1
+  sex_ids: 1
+  disability_ids: 1
+  welfare_ids: 1
+  organizationname: MyString
+  branch: MyString
+  address: MyText
+  province_id: 1
+  education: MyString
+  age: MyString
+  position: MyString
+  info: MyText
+  jobtype_id: 1
+  wage: MyString
+  document: MyText
+  apply: MyText

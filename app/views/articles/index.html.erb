@@ -1,0 +1,47 @@
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <li><%= link_to "หน้าแรก", root_path %></li>
+            <li class="active">ข่าวสารล่าสุด</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-left">
+          <div class="page-header">
+            <h1>ข่าวสารล่าสุด</h1>
+          </div>
+
+          <% if user_signed_in? && current_user.role_id == 3 %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= link_to new_article_path, class: "btn btn-primary" do %>
+                  <span class="glyphicon glyphicon-edit"></span> เพิ่มข่าว
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div>
+            <ul class="list-card">
+              <% @articles.each do |article| %>
+              <li class="card">
+                <div class="card-content">
+                  <h3 class="card-header">
+                    <%= link_to article.title, article %>
+                  </h3>
+                  <!-- <p class="card-sub-header">10 พฤศจิกายน 2557</p> -->
+                  <div class="card-body">
+                    <%= truncate(article.content, length: 150) %>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+
+          </div>
+        </div>
+        <div class="col-md-4 col-md-right">
+          <div class="short-information" style="background-color:#5cb85c; color: #ffffff;">ข่าวสารล่าสุดจะส่งไปให้ในอีเมลของคุณโดยอัตโนมัติ แต่คุณสามารถตั้งค่าการรับข่าวสารได้ตลอดเวลาที่เมนู ตั้งค่าบัญชี &gt; การแจ้งเตือน</div>
+        </div>
+      </div>

@@ -1,0 +1,1 @@
+json.extract! @job, :id, :user_id, :sex_ids, :disability_ids, :welfare_ids, :organizationname, :branch, :address, :province_id, :education, :age, :position, :info, :jobtype_id, :wage, :document, :apply, :created_at, :updated_at

@@ -1,0 +1,37 @@
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <li><%= link_to "หน้าแรก", root_path %></li>
+            <li><%= link_to "ข่าวสารล่าสุด", controller: "articles", action: "index" %></li>
+            <li class="active"><%= @article.title %></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 col-md-left">
+          <div class="paper">
+            <div class="path-header">
+              <h1 class="job_header"><%= @article.title %></h1>
+            </div>
+            <div class="path-footer" style="margin-bottom: 20px;">
+              <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</button>
+              <% if current_user.role_id == 3 %>
+
+                <%= link_to edit_article_path(@article), class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-edit"></span> แก้ไข
+                <% end %>
+
+                <%= link_to @article, method: :delete, data: {confirm: 'ต้องการลบข่าวสารหรือไม่?'}, class: "btn btn-danger" do %>
+                  <span class="glyphicon glyphicon-trash"></span> ลบ
+                <% end %>
+
+              <% end %>
+            </div>
+            <div class="path-body">
+              <%= simple_format(@article.content) %>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>

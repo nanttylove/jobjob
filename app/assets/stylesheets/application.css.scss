@@ -1,0 +1,130 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+  background: #fff;
+  max-width: 960px;
+  border: solid 1px #ddd;
+  margin: 40px auto;
+  padding: 20px;
+  -webkit-box-shadow: 0 10px 10px -10px #848484;
+  -moz-box-shadow: 0 10px 10px -10px #848484;
+  box-shadow: 0 10px 10px -10px #848484;
+}
+
+.navbar {
+  border-radius: 0px!important;
+  border-bottom: 0px!important;
+  margin-bottom: 40px;
+}
+
+.navbar-text {
+  color: #fff!important;
+}
+
+.brand-logo {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  margin-top: -20px;
+}
+
+.front-description, .front-newslist {
+  margin-bottom: 40px;
+}
+
+.front-promotion h1 {
+  color: #2fa4e7;
+}
+
+.list-card {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  list-style-type: none;
+  margin: 40px 0;
+}
+
+.short-information {
+  border: 1px solid #DDDDDD;
+  margin: 0 0 20px 0;
+  padding: 15px;
+  background: #FFFFFF;
+}
+.short-information h2 {
+  font-size: 1.4285em;
+  margin: 0 0 10px 0;
+}
+.short-information h3 {
+  font-size: 1.2857em;
+  margin: 0 0 10px 0;
+}
+
+.paper {
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #FFFFFF;
+  margin: 0 0 20px 0;
+  padding: 15px;
+}
+
+.paper-no-border {
+  background-color: #FFFFFF;
+  padding: 1px;
+}
+
+.paper a {
+  word-wrap: break-word;
+}
+
+.path-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.path-header img {
+  width: 120px;
+  height: 120px;
+}
+
+.path-body {
+  margin-bottom: 15px;
+}
+
+.path-body h3 {
+  margin-top: 0;
+}
+
+.path-footer {
+  margin-top: 30px;
+}
+
+.clock {
+  font-size: 44px;
+  color: #2eceee;
+}
+.count {
+  font-size: 38px;
+  color: #2eceee;
+}

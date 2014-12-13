@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">ข้อมูลบริษัท</h1>
+      </div>
+      <div class="panel-body">
+
+      <%= form_for(@company, html: {class: "form-horizontal"}) do |f| %>
+        <% if @company.errors.any? %>
+          <div class="alert alert-warning">
+            <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+            <ul>
+            <% @company.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!--
+        <div class="field">
+          <%= f.label :user_id %><br>
+          <%= f.number_field :user_id %>
+        </div>
+        -->
+
+        <div class="form-group">
+          <%= f.label :name, "ชื่อบริษัท", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :branch, "สาขา", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_field :branch, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, "ที่อยู่", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_area :address, rows: 5, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_field :phone, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+            <!-- <%= f.submit "บันทึกข้อมูลบริษัท", class: "btn btn-primary" %> -->
+            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+              <span class="glyphicon glyphicon-edit"></span> บันทึกข้อมูลบริษัท
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
