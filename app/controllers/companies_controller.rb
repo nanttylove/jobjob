@@ -5,10 +5,10 @@ class CompaniesController < ApplicationController
   before_action :check_same_user, only: [:edit, :update, :destroy]
   before_filter :require_user, only: [:edit, :new, :create, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
-    @companies = Company.all
+    @companies = Company.all.order("created_at DESC")
     respond_with(@companies)
   end
 
@@ -51,7 +51,7 @@ class CompaniesController < ApplicationController
     end
 
     def require_user
-      unless current_user.role_id == 1
+      unless current_user.role_id == 1 or current_user.role_id == 3
         flash[:alert] = "คุณไม่มีสิทธิ์สร้างข้อมูลบริษัท"
         redirect_to "/" and return
       end

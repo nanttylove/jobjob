@@ -3,10 +3,10 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_filter :require_user, only: [:edit, :new, :create, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
     respond_with(@articles)
   end
 

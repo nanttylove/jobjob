@@ -8,7 +8,7 @@
       </div>
 
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-8">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h1 class="panel-title">ติดต่อเรา</h1>
@@ -20,21 +20,21 @@
         <div class="form-group">
           <%= f.label :name, "ชื่อ", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "ชื่อ" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :email, "อีเมล์", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_field :email, class: "form-control" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "อีเมล์" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :message, "ข้อความ", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :message, rows: 5, class: "form-control" %>
+            <%= f.text_area :message, rows: 5, class: "form-control", placeholder: "ข้อความที่ต้องการติดต่อ" %>
           </div>
         </div>
         
@@ -48,6 +48,27 @@
       <% end %>
       
       </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="short-information">
+      <b>ผู้ดูแลระบบ</b>
+      <br>
+      <br>
+      <address>
+        <strong>นางสาวประณยา แก้วเขียวเหลือง</strong><br>
+        <abbr title="โทรศัพท์">โทรศัพท์:</abbr> 086 052 9383<br>
+        <abbr title="อีเมล">อีเมล:</abbr> <a href="mailto:nanttylove@gmail.com">nanttylove@gmail.com</a><br>
+        <abbr title="เฟซบุ๊ก">เฟซบุ๊ก:</abbr> <a class="outer-lnk" href="https://www.facebook.com/nanttylove">https://www.facebook.com/nanttylove</a><br>
+      </address>
+      <hr>
+      <address>
+        <strong>นายศรราม คำแก้ว</strong><br>
+        <abbr title="โทรศัพท์">โทรศัพท์:</abbr> 088 272 0685<br>
+        <abbr title="อีเมล">อีเมล:</abbr> <a href="mailto:nanttylove@gmail.com">nanttylove@gmail.com</a><br>
+        <abbr title="เฟซบุ๊ก">เฟซบุ๊ก:</abbr> <a class="outer-lnk" href="https://www.facebook.com/ramforgetme-not">https://www.facebook.com/ramforgetme-not</a><br>
+      </address>
     </div>
   </div>
 </div>

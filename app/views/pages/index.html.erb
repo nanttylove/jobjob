@@ -45,11 +45,9 @@
             </div>
             <div class="col-md-12">
               <ul>
-                <li><a href="#">เปิดรับสมัครพนักงานคีย์บิล เจ้าหน้าที่ตรวจนับสินค้า</a> <span class="label label-default">14 พฤศจิกายน 2557</span></li>
-                <li><a href="#">เปิดรับสมัครพนักงานธุรการจำนวน</a> <span class="label label-default">13พฤศจิกายน 2557</span></li></li>
-                <li><a href="#">เปิดรับสมัครพนักงานทำความสะอาด</a> <span class="label label-default">12 พฤศจิกายน 2557</span></li>
-                <li><a href="#">รับสมัคร เจ้าหน้าที่คลังสินค้า</a> <span class="label label-default">10 พฤศจิกายน 2557</span></li>
-                <li><a href="#">เจ้าหน้าที่เขียนแบบงานก่อสร้าง</a> <span class="label label-default">9 พฤศจิกายน 2557</span></li>
+              <% @jobs.each do |job| %>
+                <li><%= link_to job.position, job %> <span class="label label-default"><%= job.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+              <% end %>
               </ul>
             </div>
 
@@ -58,16 +56,9 @@
             </div>
             <div class="col-md-12">
               <ul>
-                <li><a href="#">เอไอเอส ปั้นผู้พิการเป็นนักคอลเซ็นเตอร์</a> <span class="label label-default">14 พฤศจิกายน 2557</span></li>
-                <li><a href="#">ขอเชิญร่วมกิจกรรมและซื้อผลิตภัณฑ์ดอกแก้วกัลยา สนับสนุนผู้พิการในวันคนพิการ ปี57</a> <span class="label label-default">14 พฤศจิกายน 2557</span></li>
-                <li><a href="#">ล่ามภาษามือ สื่อความเท่าเทียม</a> <span class="label label-default">13 พฤศจิกายน 2557</span></li>
-                <li><a href="#">แบ่งปันน้ำใจให้ผู้พิการ ที่ศูนย์ฝึกอาชีพคนพิการสระแก้ว จ.นครศรีธรรมราช</a> <span class="label label-default">13 พฤศจิกายน 2557</span></li>
-                <li><a href="#">ร่วมกันเฟ้นหาสุดยอด “สถานที่-องค์กร-บุคคล” อารยสถาปัตย์แห่งปี 2557</a> <span class="label label-default">10 พฤศจิกายน 2557</span></li>
-                <li><a href="#">สภาสังคมสงเคราะห์ฯ จัดงานวันคนพิการ</a> <span class="label label-default">10 พฤศจิกายน 2557</span></li>
-                <li><a href="#">สปสช.ปลื้มผ่านประเมินมาตรฐานดูแลข้อมูลผู้ป่วยบัตรทอง</a> <span class="label label-default">7 พฤศจิกายน 2557</span></li>
-                <li><a href="#">เอส แอนด์ พี มอบเงินสนับสนุนผลิตภัณฑ์คนพิการ โรงเรียนเศรษฐเสถียรในพระราชูปถัมภ์</a> <span class="label label-default">7 พฤศจิกายน 2557</span></li>
-                <li><a href="#">ไม้เท้าสั่นเตือนสิ่งกีดขวางเพื่อคนตาบอด</a> <span class="label label-default">6 พฤศจิกายน 2557</span></li>
-                <li><a href="#">เผยสถิติปี 57 นายจ้างรับคนพิการทำงานกว่า 2.4 หมื่นคน</a> <span class="label label-default">5 พฤศจิกายน 2557</span></li>
+              <% @articles.each do |article| %>
+                <li><%= link_to article.title, article %> <span class="label label-default"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+              <% end %>
               </ul>
             </div>
 

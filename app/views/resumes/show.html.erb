@@ -48,11 +48,12 @@
           <p><%= @resume.training %></p>
 
           <div class="resume-footer">
-            <% if current_user.id == @resume.user_id %>
+            <% if user_signed_in? && (current_user.id == @resume.user_id or current_user.role_id == 3) %>
               <%= link_to edit_resume_path, class: "btn btn-primary" do %>
                 <span class="glyphicon glyphicon-edit"></span> แก้ไขแฟ้มประวัติ
               <% end %>
             <% end %>
+            <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
           </div>
 
         </div>

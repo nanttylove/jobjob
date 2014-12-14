@@ -8,20 +8,18 @@
       </div>
 
       <div class="row">
-        <div class="col-md-8 col-md-left">
+        <div class="col-md-8">
           <div class="page-header">
-            <h1>ข่าวสารล่าสุด</h1>
-          </div>
-
-          <% if user_signed_in? && current_user.role_id == 3 %>
-            <div class="row">
-              <div class="col-md-12">
-                <%= link_to new_article_path, class: "btn btn-primary" do %>
+            <h1>
+              ข่าวสารล่าสุด
+              <% if user_signed_in? && current_user.role_id == 3 %>
+                <%= link_to new_article_path, class: "btn btn-primary pull-right" do %>
                   <span class="glyphicon glyphicon-edit"></span> เพิ่มข่าว
                 <% end %>
-              </div>
-            </div>
-          <% end %>
+              <% end %>
+            </h1>
+          </div>
+
           <div>
             <ul class="list-card">
               <% @articles.each do |article| %>
@@ -30,7 +28,7 @@
                   <h3 class="card-header">
                     <%= link_to article.title, article %>
                   </h3>
-                  <!-- <p class="card-sub-header">10 พฤศจิกายน 2557</p> -->
+                  <p class="card-sub-header"><%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
                   <div class="card-body">
                     <%= truncate(article.content, length: 150) %>
                   </div>
@@ -42,6 +40,8 @@
           </div>
         </div>
         <div class="col-md-4 col-md-right">
-          <div class="short-information" style="background-color:#5cb85c; color: #ffffff;">ข่าวสารล่าสุดจะส่งไปให้ในอีเมลของคุณโดยอัตโนมัติ แต่คุณสามารถตั้งค่าการรับข่าวสารได้ตลอดเวลาที่เมนู ตั้งค่าบัญชี &gt; การแจ้งเตือน</div>
+          <div class="short-information" style="background: #40A1E4; color: #fff">
+            <p>ข่าวสารและบทความด้านต่างๆ ที่เกี่ยวข้องกับผู้พิการ</p>
+          </div>
         </div>
       </div>
