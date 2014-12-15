@@ -95,14 +95,14 @@
         <div class="form-group">
           <%= f.label :education, "ระดับการศึกษา", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :education, options_for_select(([ "ต่ำกว่าประถมศึกษา", "ประถมศึกษา", "มัธมศึกษาตอนต้น", "มัธยมศึกษาตอนปลาย", "ปวช", "ปวส", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่นๆ" ]), @job.education, class: "form-control") %>
+            <%= f.select :education, options_for_select(([ "ต่ำกว่าประถมศึกษา", "ประถมศึกษา", "มัธมศึกษาตอนต้น", "มัธยมศึกษาตอนปลาย", "ปวช", "ปวส", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่นๆ" ]), @job.education), class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :age, "อายุ", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :age, options_for_select(([ "15-20 ปี", "21-25 ปี", "26-30 ปี", "31-35 ปี", "36-40 ปี", "41-45 ปี", "45 ปีขึ้นไป" ]), @job.age, class: "form-control") %>
+            <%= f.select :age, options_for_select(([ "15-20 ปี", "21-25 ปี", "26-30 ปี", "31-35 ปี", "36-40 ปี", "41-45 ปี", "45 ปีขึ้นไป" ]), @job.age), class: "form-control" %>
           </div>
         </div>
 
@@ -137,7 +137,7 @@
         <div class="form-group">
           <%= f.label :wage, "ค่าตอบแทน", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :wage, options_for_select(([ "ต่ำกว่า 7500", "7500-10,000", "10,000-15,000", "15,000-20,000", "20,000-25,000", "มากกว่า 25,000" ]), @job.wage, class: "form-control") %>
+            <%= f.select :wage, options_for_select(([ "ต่ำกว่า 7500", "7500-10,000", "10,000-15,000", "15,000-20,000", "20,000-25,000", "มากกว่า 25,000" ]), @job.wage), class: "form-control" %>
           </div>
         </div>
 
