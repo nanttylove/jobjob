@@ -64,6 +64,7 @@
                   <% if current_user.role_id == 1 %>
                   <% unless current_user.company == nil %>
                   <li><%= link_to "ข้อมูลบริษัท", company_path(current_user.company.id) %></li>
+                  <li><%= link_to "เพิ่มประกาศงาน", new_job_path %></li>
                   <% else %>
                   <li><%= link_to "เพิ่มข้อมูลบริษัท", new_company_path %></li>
                   <% end %>

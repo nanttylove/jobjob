@@ -9,7 +9,7 @@
       <%= form_for(@job, html: {class: "form-horizontal"}) do |f| %>
         <% if @job.errors.any? %>
           <div class="alert alert-warning">
-            <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+            <h2><%= pluralize(@job.errors.count, "error") %> ไม่สามารถบันทึกการแก้ไขนี้ได้:</h2>
 
             <ul>
             <% @job.errors.full_messages.each do |message| %>
@@ -109,13 +109,13 @@
         <div class="form-group">
           <%= f.label :position, "ตำแหน่งที่เปิดรับ", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_field :position, class: "form-control" %>
+            <%= f.text_field :position, class: "form-control", placeholder: "ตำแหน่งที่เปิดรับ" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :amount, "อัตราที่เปิดรับ", class: "col-md-4" %>
-          <div class="col-md-6">
+          <div class="col-md-2">
             <%= f.number_field :amount, class: "form-control" %>
           </div>
         </div>
@@ -123,7 +123,7 @@
         <div class="form-group">
           <%= f.label :info, "รายละเอียดงาน", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :info, class: "form-control" %>
+            <%= f.text_area :info, class: "form-control", placeholder: "รายละเอียดงาน" %>
           </div>
         </div>
 
@@ -135,7 +135,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :wage, "ค่าตอยแทน", class: "col-md-4" %>
+          <%= f.label :wage, "ค่าตอบแทน", class: "col-md-4" %>
           <div class="col-md-6">
             <%= f.select :wage, options_for_select(([ "ต่ำกว่า 7500", "7500-10,000", "10,000-15,000", "15,000-20,000", "20,000-25,000", "มากกว่า 25,000" ]), @job.wage) %>
           </div>
@@ -144,14 +144,14 @@
         <div class="form-group">
           <%= f.label :document, "เอกสารที่ต้องใช้", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :document, rows: 5, class: "form-control" %>
+            <%= f.text_area :document, rows: 5, class: "form-control", placeholder: "เอกสารที่ต้องใช้" %>
           </div>          
         </div>
 
         <div class="form-group">
           <%= f.label :apply, "วิธีการสมัคร", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :apply, rows: 5, class: "form-control" %>
+            <%= f.text_area :apply, rows: 5, class: "form-control", placeholder: "วิธีการสมัคร" %>
           </div>
         </div>
 

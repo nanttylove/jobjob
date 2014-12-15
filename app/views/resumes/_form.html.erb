@@ -20,70 +20,70 @@
         <% end %>
 
         <div class="form-group">
-          <%= f.label :sex_id, "เพศ", class: "col-md-4" %>
+          <%= f.label :sex_id, "เพศ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.select :sex_id, options_from_collection_for_select(Sex.all, :id, :name, @resume.sex_id), select: f.object.sex_id, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :fname, "ชื่อ", class: "col-md-4" %>
+          <%= f.label :fname, "ชื่อ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :fname, class: "form-control" %>
+            <%= f.text_field :fname, class: "form-control", placeholder: "ชื่อ" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :lname, "นามสกุล", class: "col-md-4" %>
+          <%= f.label :lname, "นามสกุล", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :lname, class: "form-control" %>
+            <%= f.text_field :lname, class: "form-control", placeholder: "นามสกุล" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :religion, "ศาสนา", class: "col-md-4" %>
+          <%= f.label :religion, "ศาสนา", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.select :religion, options_for_select(([ "พุทธ", "คริสต์", "อิสลาม", "อื่นๆ" ]), @resume.religion), class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :originnationality, "เชื้อชาติ", class: "col-md-4" %>
+          <%= f.label :originnationality, "เชื้อชาติ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.select :originnationality, options_for_select(([ "ไทย", "ลาว", "จีน", "มลายู", "มอญ", "ชะแมร์", "อินเดีย", "เมียนมาร์", "ชวา", "เวียต", "อื่นๆ" ]), @resume.originnationality), class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :nationality, "สัญชาติ", class: "col-md-4" %>
+          <%= f.label :nationality, "สัญชาติ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.select :nationality, options_for_select(([ "ไทย", "สิงคโปร์", "ฟิลิปปินส์", "พม่า", "มาเลเซีย", "ลาว", "กัมพูชา", "บรูไนดารุสซาลาม", "อัฟกานิสถาน", "บังคลาเทศ", "อื่นๆ" ]), @resume.nationality), class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :nationalid, "เลขประจำตัวประชาชน", class: "col-md-4" %>
+          <%= f.label :nationalid, "เลขประจำตัวประชาชน", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :nationalid, class: "form-control" %>
+            <%= f.text_field :nationalid, class: "form-control", placeholder: "เลขประจำตัวประชาชน" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :disablerid, "เลขประจำตัวคนพิการ", class: "col-md-4" %>
+          <%= f.label :disablerid, "เลขประจำตัวคนพิการ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :disablerid, class: "form-control" %>
+            <%= f.text_field :disablerid, class: "form-control", placeholder: "เลขประจำตัวคนพิการ" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :birthdate, "วัน/เดือน/ปีเกิด", class: "col-md-4" %>
+          <%= f.label :birthdate, "วัน/เดือน/ปีเกิด", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.date_select :birthdate, end_year: Date.today.year - 80, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :disability_ids, "ประเภทความพิการ", class: "col-md-4" %>
+          <%= f.label :disability_ids, "ประเภทความพิการ", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%#= collection_check_boxes(:resume, :disability_ids, Disability.all, :id, :name) %>
             <%= f.collection_check_boxes(:disability_ids, Disability.all, :id, :name) do |b| %>
@@ -97,37 +97,37 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %>
+          <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :phone, class: "form-control" %>
+            <%= f.text_field :phone, class: "form-control", placeholder: "โทรศัพท์" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :address, "ที่อยู่", class: "col-md-4" %>
+          <%= f.label :address, "ที่อยู่", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_area :address, rows: 5, class: "form-control" %>
+            <%= f.text_area :address, rows: 5, class: "form-control", placeholder: "ที่อยู่" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :education, "ประวัติการศึกษา", class: "col-md-4" %>
+          <%= f.label :education, "ประวัติการศึกษา", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_area :education, rows: 5, class: "form-control" %>
+            <%= f.text_area :education, rows: 5, class: "form-control", placeholder: "ประวัติการศึกษา" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :training, "ประวัติการฝึกอบรม", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :training, rows: 5, class: "form-control" %>
+            <%= f.text_area :training, rows: 5, class: "form-control", placeholder: "ประวัติการฝึกอบรม" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :contactperson, "บุคคลที่ติดต่อได้", class: "col-md-4" %>
+          <%= f.label :contactperson, "บุคคลที่ติดต่อได้", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_area :contactperson, rows: 5, class: "form-control" %>
+            <%= f.text_area :contactperson, rows: 5, class: "form-control", placeholder: "บุคคลที่ติดต่อได้" %>
           </div>
         </div>
 

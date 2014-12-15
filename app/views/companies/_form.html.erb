@@ -9,7 +9,7 @@
       <%= form_for(@company, html: {class: "form-horizontal"}) do |f| %>
         <% if @company.errors.any? %>
           <div class="alert alert-warning">
-            <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+            <h2><%= pluralize(@company.errors.count, "error") %> ไม่สามารถบันทึกการแก้ไขนี้ได้:</h2>
 
             <ul>
             <% @company.errors.full_messages.each do |message| %>
@@ -27,30 +27,30 @@
         -->
 
         <div class="form-group">
-          <%= f.label :name, "ชื่อบริษัท", class: "col-md-4" %>
+          <%= f.label :name, "ชื่อบริษัท", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "ชื่อบริษัท" %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :branch, "สาขา", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_field :branch, class: "form-control" %>
+            <%= f.text_field :branch, class: "form-control", placeholder: "สาขา" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :address, "ที่อยู่", class: "col-md-4" %>
+          <%= f.label :address, "ที่อยู่", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_area :address, rows: 5, class: "form-control" %>
+            <%= f.text_area :address, rows: 5, class: "form-control", placeholder: "ที่อยู่" %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %>
+          <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
-            <%= f.text_field :phone, class: "form-control" %>
+            <%= f.text_field :phone, class: "form-control", placeholder: "โทรศัพท์" %>
           </div>
         </div>
 
