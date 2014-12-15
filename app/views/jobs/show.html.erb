@@ -3,7 +3,7 @@
           <ol class="breadcrumb">
             <li><%= link_to "หน้าแรก", root_path %></li>
             <li><%= link_to "ค้นหางาน", controller: "jobs", action: "index" %></li>
-            <li class="active"><%= "#{@job.position} ที่ #{@job.organizationname}" %></li>
+            <li class="active"><%= "ตำแหน่ง #{@job.position} ที่ #{@job.organizationname}" %></li>
           </ol>
         </div>
       </div>
@@ -13,7 +13,7 @@
         <div class="col-md-8">
           <div class="paper">
             <div class="path-header">
-              <h1 class="job_header"><%= @job.position %></h1>
+              <h1 class="job_header"> ตำแหน่ง <%= @job.position %></h1>
             </div>
             <div class="path-body">
               <h3>รายละเอียดบริษัท</h3>

@@ -8,7 +8,7 @@ class ResumesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @resumes = Resume.all.order("created_at DESC")
+    @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     respond_with(@resumes)
   end
 

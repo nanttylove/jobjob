@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @companies = Company.all.order("created_at DESC")
+    @companies = Company.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     respond_with(@companies)
   end
 

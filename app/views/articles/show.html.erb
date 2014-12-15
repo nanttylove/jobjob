@@ -15,7 +15,7 @@
               <h1 class="job_header"><%= @article.title %></h1>
             </div>
             <div class="path-footer" style="margin-bottom: 20px;">
-              <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</button>
+              <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
               <% if current_user.role_id == 3 %>
 
                 <%= link_to edit_article_path(@article), class: "btn btn-default" do %>
