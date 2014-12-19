@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218235609) do
+ActiveRecord::Schema.define(version: 20141219011521) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -29,9 +29,17 @@ ActiveRecord::Schema.define(version: 20141218235609) do
     t.string   "branch"
     t.text     "address"
     t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "detail"
+    t.string   "address_village"
+    t.string   "address_village_no"
+    t.string   "address_soi"
+    t.string   "address_road"
+    t.string   "address_postal_code"
+    t.integer  "province_id"
+    t.string   "address_amphur"
+    t.string   "address_tambon"
   end
 
   create_table "disabilities", force: true do |t|
@@ -140,9 +148,17 @@ ActiveRecord::Schema.define(version: 20141218235609) do
     t.text     "education"
     t.text     "training"
     t.text     "contactperson"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "title"
+    t.string   "address_village"
+    t.string   "address_village_no"
+    t.string   "address_soi"
+    t.string   "address_road"
+    t.string   "address_postal_code"
+    t.integer  "province_id"
+    t.string   "address_amphur"
+    t.string   "address_tambon"
   end
 
   create_table "roles", force: true do |t|

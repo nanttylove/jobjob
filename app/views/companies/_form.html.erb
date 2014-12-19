@@ -40,12 +40,36 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :address, "ที่อยู่", class: "col-md-4" %><span style="color:red">*</span>
-          <div class="col-md-6">
-            <%= f.text_area :address, rows: 5, class: "form-control", placeholder: "ที่อยู่" %>
+          <div class="form-group">
+            <label for="" class="col-md-4">ที่อยู่</label>
+            <div class="col-md-6">
+              <%# <%= f.text_area :address, rows: 5, class: "form-control", placeholder: "ที่อยู่" %1> %>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_village, class: "form-control", placeholder: "หมู่บ้าน" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_village_no, class: "form-control", placeholder: "หมู่ที่" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_soi, class: "form-control", placeholder: "ตรอก/ซอย" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_road, class: "form-control", placeholder: "ถนน" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_postal_code, class: "form-control", placeholder: "รหัสไปรษณีย์" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name, @company.province_id), {}, { select: f.object.province_id, class: "form-control" } %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_amphur, class: "form-control", placeholder: "อำเภอ" %>
+                </div>
+                <div class="col-md-12 form-group">
+                  <%= f.text_field :address_tambon, class: "form-control", placeholder: "ตำบล" %>
+                </div>
+            </div>
           </div>
-        </div>
 
         <div class="form-group">
           <%= f.label :address, "รายละเอียดบริษัท", class: "col-md-4" %><span style="color:red">*</span>

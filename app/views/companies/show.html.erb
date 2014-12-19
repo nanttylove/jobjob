@@ -24,7 +24,7 @@
 			<div class="path-body">
 				<h2>ติดต่อ</h2>
 				<p>
-				<strong>ที่อยู่</strong> <%= @company.address %><br>
+				<strong>ที่อยู่</strong> <%= @company.address_village %> หมู่ที่ <%= @company.address_village_no %> ซอย<%= @company.address_soi %> ถนน<%= @company.address_road %> ตำบล<%= @company.address_tambon %> อำเภอ<%= @company.address_amphur %> จังหวัด<%= @company.province.name %> รหัสไปรษณีย์ <%= @company.address_postal_code %><br>
 				<strong>โทรศัพท์</strong> <%= @company.phone %>
 			</p>
 			</div>

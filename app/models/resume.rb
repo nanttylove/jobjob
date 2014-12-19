@@ -26,6 +26,7 @@
 class Resume < ActiveRecord::Base
   belongs_to :user
   belongs_to :sex
+  belongs_to :province
   has_and_belongs_to_many :disabilities
   has_many :jobs, through: :disabilities
 
@@ -40,7 +41,7 @@ class Resume < ActiveRecord::Base
 	validates_presence_of :birthdate
 	validates_presence_of :disability_ids
 	validates_presence_of :phone
-	validates_presence_of :address
+	#validates_presence_of :address
 	validates_presence_of :education
 	validates_presence_of :training
 	validates_presence_of :contactperson

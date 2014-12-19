@@ -49,7 +49,7 @@ class ResumesController < ApplicationController
     end
 
     def resume_params
-      params.require(:resume).permit(:user_id, :sex_id, :fname, :lname, :religion, :originnationality, :nationality, :nationalid, :disablerid, :birthdate, {:disability_ids => []}, :phone, :address, :education, :training, :contactperson, :title)
+      params.require(:resume).permit(:user_id, :sex_id, :fname, :lname, :religion, :originnationality, :nationality, :nationalid, :disablerid, :birthdate, {:disability_ids => []}, :phone, :address, :education, :training, :contactperson, :title, :address_village, :address_village_no, :address_soi, :address_road, :address_postal_code, :province_id, :address_amphur, :address_tambon)
     end
 
     def require_user

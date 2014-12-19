@@ -10,4 +10,6 @@
 
 class Province < ActiveRecord::Base
   has_many :jobs
+  has_many :resumes
+  has_many :companies
 end

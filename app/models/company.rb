@@ -14,6 +14,7 @@
 
 class Company < ActiveRecord::Base
   belongs_to :user
+  belongs_to :province
 
 	validates_presence_of :name
 	validates_presence_of :address

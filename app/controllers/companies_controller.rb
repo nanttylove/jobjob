@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
     end
 
     def company_params
-      params.require(:company).permit(:user_id, :name, :branch, :address, :phone)
+      params.require(:company).permit(:user_id, :name, :branch, :address, :phone, :address_village, :address_village_no, :address_soi, :address_road, :address_postal_code, :province_id, :address_amphur, :address_tambon)
     end
 
     def require_user

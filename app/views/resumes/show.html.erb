@@ -23,13 +23,13 @@
 			<div class="resume-divider"></div>
 
 			<h2 class="resume-title">ประวัติโดยรวม</h2>
-			<p><strong><%= "คุณ#{@resume.fname} #{@resume.lname}" %></strong> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี ที่อยู่ <%= @resume.address %></p>
+			<p><strong><%= "คุณ#{@resume.fname} #{@resume.lname}" %></strong> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี ที่อยู่ <%= @resume.address_village %> หมู่ที่ <%= @resume.address_village_no %> ซอย<%= @resume.address_soi %> ถนน<%= @resume.address_road %> ตำบล<%= @resume.address_tambon %> อำเภอ<%= @resume.address_amphur %> จังหวัด<%= @resume.province.name %> รหัสไปรษณีย์ <%= @resume.address_postal_code %></p>
 
 			<h2 class="resume-title">ข้อมูลทั่วไป</h2>
 			<p><%= "คุณ#{@resume.fname} #{@resume.lname}" %> เพศ <%= @resume.sex.name %> ศาสนา <%= @resume.religion %> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี เชื้อชาติ <%= @resume.originnationality %> สัญชาติ <%= @resume.nationality %></p>
 
 			<h2 class="resume-title">ข้อมูลการติดต่อ</h2>
-			<address><abbr title="อีเมล">อีเมล : </abbr><a href="mailto:<%= @resume.user.email %>"><%= @resume.user.email %></a><br><abbr title="โทรศัพท์บ้าน">โทรศัพท์ : </abbr><%= @resume.phone %><br><abbr title="ที่อยู่">ที่อยู่ : </abbr><%= @resume.address %></address>
+			<address><abbr title="อีเมล">อีเมล : </abbr><a href="mailto:<%= @resume.user.email %>"><%= @resume.user.email %></a><br><abbr title="โทรศัพท์บ้าน">โทรศัพท์ : </abbr><%= @resume.phone %><br><abbr title="ที่อยู่">ที่อยู่ : </abbr><%= @resume.address_village %> หมู่ที่ <%= @resume.address_village_no %> ซอย<%= @resume.address_soi %> ถนน<%= @resume.address_road %> ตำบล<%= @resume.address_tambon %> อำเภอ<%= @resume.address_amphur %> จังหวัด<%= @resume.province.name %> รหัสไปรษณีย์ <%= @resume.address_postal_code %></address>
 
 			<h2 class="resume-title">ผู้ติดต่อได้โดยสะดวก</h2>
 			<address><%= @resume.contactperson %></address>
