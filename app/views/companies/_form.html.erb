@@ -48,6 +48,13 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :address, "รายละเอียดบริษัท", class: "col-md-4" %><span style="color:red">*</span>
+          <div class="col-md-6">
+            <%= f.text_area :address, rows: 5, class: "form-control", placeholder: "รายละเอียดบริษัท" %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= f.label :phone, "โทรศัพท์", class: "col-md-4" %><span style="color:red">*</span>
           <div class="col-md-6">
             <%= f.text_field :phone, class: "form-control", placeholder: "โทรศัพท์" %>

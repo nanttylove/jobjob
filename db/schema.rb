@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213170034) do
+ActiveRecord::Schema.define(version: 20141218235609) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20141213170034) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "detail"
   end
 
   create_table "disabilities", force: true do |t|
@@ -59,6 +60,17 @@ ActiveRecord::Schema.define(version: 20141213170034) do
     t.integer "resume_id"
   end
 
+  create_table "documents", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documents_jobs", id: false, force: true do |t|
+    t.integer "document_id"
+    t.integer "job_id"
+  end
+
   create_table "jobs", force: true do |t|
     t.integer  "user_id"
     t.integer  "sex_ids"
@@ -69,22 +81,29 @@ ActiveRecord::Schema.define(version: 20141213170034) do
     t.text     "address"
     t.integer  "province_id"
     t.string   "education"
-    t.string   "age"
     t.string   "position"
     t.text     "info"
     t.integer  "jobtype_id"
-    t.string   "wage"
-    t.text     "document"
-    t.text     "apply"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "phone"
     t.integer  "amount"
+    t.integer  "agefrom"
+    t.integer  "ageto"
+    t.integer  "wagefrom"
+    t.integer  "wageto"
+    t.integer  "document_ids"
+    t.integer  "toapply_ids"
   end
 
   create_table "jobs_sexes", id: false, force: true do |t|
     t.integer "job_id"
     t.integer "sex_id"
+  end
+
+  create_table "jobs_toapplies", id: false, force: true do |t|
+    t.integer "job_id"
+    t.integer "toapply_id"
   end
 
   create_table "jobs_welfares", id: false, force: true do |t|
@@ -123,6 +142,7 @@ ActiveRecord::Schema.define(version: 20141213170034) do
     t.text     "contactperson"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "title"
   end
 
   create_table "roles", force: true do |t|
@@ -132,6 +152,12 @@ ActiveRecord::Schema.define(version: 20141213170034) do
   end
 
   create_table "sexes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "toapplies", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

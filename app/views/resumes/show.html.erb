@@ -1,61 +1,61 @@
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><%= link_to "หน้าแรก", root_path %></li>
-            <li><%= link_to "แฟ้มประวัติผู้สมัครงาน", controller: "resumes", action: "index" %></li>
-            <li class="active"><%= "คุณ#{@resume.fname} #{@resume.lname}" %></li>
-          </ol>
-        </div>
-      </div>
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li><%= link_to "หน้าแรก", root_path %></li>
+			<li><%= link_to "แฟ้มประวัติผู้สมัครงาน", controller: "resumes", action: "index" %></li>
+			<li class="active"><%= "คุณ#{@resume.fname} #{@resume.lname}" %></li>
+		</ol>
+	</div>
+	</div>
 
-      <div class="col-md-8 col-md-left">
-        <div class="paper">
-          <div class="resume-header">
-            <h1><%= "คุณ#{@resume.fname} #{@resume.lname}" %></h1>
-          </div>
-          
-          <div class="resume-divider"></div>
-          <div class="resume-picture-container"></div>
-            
-          <div class="col"><p><%= @resume.user.email %></p><p><%= @resume.address %></p><p><%= @resume.phone %></p></div>
-            
-          <div class="clearfix"></div>
-          <div class="resume-divider"></div>
-          
-          <h2 class="resume-title">ประวัติโดยรวม</h2>
-          <p><strong><%= "คุณ#{@resume.fname} #{@resume.lname}" %></strong> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี ที่อยู่ <%= @resume.address %></p>
-            
-          <h2 class="resume-title">ข้อมูลทั่วไป</h2>
-          <p><%= "คุณ#{@resume.fname} #{@resume.lname}" %> เพศ <%= @resume.sex.name %> ศาสนา <%= @resume.religion %> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี เชื้อชาติ <%= @resume.originnationality %> สัญชาติ <%= @resume.nationality %></p>
-            
-          <h2 class="resume-title">ข้อมูลการติดต่อ</h2>
-          <address><abbr title="อีเมล">อีเมล : </abbr><a href="mailto:<%= @resume.user.email %>"><%= @resume.user.email %></a><br><abbr title="โทรศัพท์บ้าน">โทรศัพท์ : </abbr><%= @resume.phone %><br><abbr title="ที่อยู่">ที่อยู่ : </abbr><%= @resume.address %></address>
-            
-          <h2 class="resume-title">ผู้ติดต่อได้โดยสะดวก</h2>
-          <address><%= @resume.contactperson %></address>
+	<div class="col-md-8 col-md-left">
+		<div class="paper">
+			<div class="resume-header">
+				<h1><%= "คุณ#{@resume.fname} #{@resume.lname}" %></h1>
+			</div>
 
-          <h2 class="resume-title">ประเภทความพิการ</h2>
-          <ul>
-          <% @resume.disabilities.each do |disability| %>
-            <li><%= disability.name %></li>
-          <% end %>
-          </ul>
+			<div class="resume-divider"></div>
+			<div class="resume-picture-container"></div>
 
-          <h2 class="resume-title">ประวัติการศึกษา</h2>
-          <p><%= @resume.education %></p>
+			<div class="col"><p><%= @resume.user.email %></p><p><%= @resume.address %></p><p><%= @resume.phone %></p></div>
 
-          <h2 class="resume-title">ประวัติการฝึกอบรม</h2>
-          <p><%= @resume.training %></p>
+			<div class="clearfix"></div>
+			<div class="resume-divider"></div>
 
-          <div class="resume-footer">
-            <% if user_signed_in? && (current_user.id == @resume.user_id or current_user.role_id == 3) %>
-              <%= link_to edit_resume_path, class: "btn btn-primary" do %>
-                <span class="glyphicon glyphicon-edit"></span> แก้ไขแฟ้มประวัติ
-              <% end %>
-            <% end %>
-            <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
-          </div>
+			<h2 class="resume-title">ประวัติโดยรวม</h2>
+			<p><strong><%= "คุณ#{@resume.fname} #{@resume.lname}" %></strong> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี ที่อยู่ <%= @resume.address %></p>
 
-        </div>
-      </div>
-      <div class="clearfix"></div>
+			<h2 class="resume-title">ข้อมูลทั่วไป</h2>
+			<p><%= "คุณ#{@resume.fname} #{@resume.lname}" %> เพศ <%= @resume.sex.name %> ศาสนา <%= @resume.religion %> อายุ <%= Date.today.year - @resume.birthdate.year %> ปี เชื้อชาติ <%= @resume.originnationality %> สัญชาติ <%= @resume.nationality %></p>
+
+			<h2 class="resume-title">ข้อมูลการติดต่อ</h2>
+			<address><abbr title="อีเมล">อีเมล : </abbr><a href="mailto:<%= @resume.user.email %>"><%= @resume.user.email %></a><br><abbr title="โทรศัพท์บ้าน">โทรศัพท์ : </abbr><%= @resume.phone %><br><abbr title="ที่อยู่">ที่อยู่ : </abbr><%= @resume.address %></address>
+
+			<h2 class="resume-title">ผู้ติดต่อได้โดยสะดวก</h2>
+			<address><%= @resume.contactperson %></address>
+
+			<h2 class="resume-title">ประเภทความพิการ</h2>
+			<ul>
+				<% @resume.disabilities.each do |disability| %>
+					<li><%= disability.name %></li>
+				<% end %>
+			</ul>
+
+			<h2 class="resume-title">ประวัติการศึกษา</h2>
+			<p><%= @resume.education %></p>
+
+			<h2 class="resume-title">ประวัติการฝึกอบรม</h2>
+			<p><%= @resume.training %></p>
+
+			<div class="resume-footer">
+				<% if user_signed_in? && (current_user.id == @resume.user_id or current_user.role_id == 3) %>
+					<%= link_to edit_resume_path, class: "btn btn-primary" do %>
+						<span class="glyphicon glyphicon-edit"></span> แก้ไขแฟ้มประวัติ
+					<% end %>
+				<% end %>
+				<a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
+			</div>
+
+		</div>
+	</div>
+<div class="clearfix"></div>

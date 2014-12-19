@@ -1,103 +1,50 @@
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><%= link_to "หน้าแรก", root_path %></li>
-            <li class="active">แฟ้มประวัติผู้สมัครงาน</li>
-          </ol>
-        </div>
-      </div>
+<div class="row">
+<div class="col-md-12">
+	<ol class="breadcrumb">
+		<li><%= link_to "หน้าแรก", root_path %></li>
+		<li class="active">แฟ้มประวัติผู้สมัครงาน</li>
+	</ol>
+</div>
+</div>
 
-      <div class="row">
-        <div class="col-md-8 col-md-left">
-          <div class="page-header">
-            <h1>แฟ้มประวัติผู้สมัครงาน</h1>
-          </div>
-          <div>
-            <ul class="list-card">
-              <% @resumes.each do |resume| %>
-              <li class="card">
-                <div class="card-content">
-                  <h3 class="card-header">
-                    <%= link_to "คุณ#{resume.fname} #{resume.lname}", resume %>
-                  </h3>
-                  <!-- <p class="card-sub-header">10 พฤศจิกายน 2557</p> -->
-                  <div class="card-body">
-                    <b>อายุ: </b><%= (Date.today.year - resume.birthdate.year).to_s %> ปี<br>
-                    <b>ที่อยู่: </b><%= resume.address %><br>
-                    <b>ความพิการ: </b>
-                      <ul>
-                      <% resume.disabilities.each do |disability| %>
-                        <li><%= disability.name %></li>
-                      <% end %>
-                      </ul>
-                    <b>การศึกษา: </b><%= resume.education %><br>
-                  </div>
-                </div>
-                <hr>
-              </li>
-              <% end %>
-            </ul>
-            <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+<div class="row">
+	<div class="col-md-8 col-md-left">
+		<div class="page-header">
+			<h1>แฟ้มประวัติผู้สมัครงาน</h1>
+		</div>
+		<div>
+			<ul class="list-card">
+				<% @resumes.each do |resume| %>
+					<li class="card">
+						<div class="card-content">
+							<h3 class="card-header">
+								<%= link_to "คุณ#{resume.fname} #{resume.lname}", resume %>
+							</h3>
+							<div class="card-body">
+								<b>อายุ: </b><%= (Date.today.year - resume.birthdate.year).to_s %> ปี<br>
+								<b>ที่อยู่: </b><%= resume.address %><br>
+								<b>ความพิการ: </b>
+								<ul>
+									<% resume.disabilities.each do |disability| %>
+										<li><%= disability.name %></li>
+									<% end %>
+								</ul>
+								<b>การศึกษา: </b><%= resume.education %><br>
+							</div>
+						</div>
+						<hr>
+					</li>
+				<% end %>
+			</ul>
+			<%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
 
-          </div>
-        </div>
-        <div class="col-md-4 col-md-right">
-        </div>
-        </div>
-      </div>
+		</div>
+	</div>
+	<div class="col-md-4 col-md-right">
+	</div>
+</div>
+</div>
 
 <!--
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Sex</th>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Religion</th>
-      <th>Originnationality</th>
-      <th>Nationality</th>
-      <th>Nationalid</th>
-      <th>Disablerid</th>
-      <th>Birthdate</th>
-      <th>Disability ids</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Education</th>
-      <th>Training</th>
-      <th>Contactperson</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @resumes.each do |resume| %>
-      <tr>
-        <td><%= resume.user_id %></td>
-        <td><%= resume.sex_id %></td>
-        <td><%= resume.fname %></td>
-        <td><%= resume.lname %></td>
-        <td><%= resume.religion %></td>
-        <td><%= resume.originnationality %></td>
-        <td><%= resume.nationality %></td>
-        <td><%= resume.nationalid %></td>
-        <td><%= resume.disablerid %></td>
-        <td><%= resume.birthdate %></td>
-        <td><%= resume.disability_ids %></td>
-        <td><%= resume.phone %></td>
-        <td><%= resume.address %></td>
-        <td><%= resume.education %></td>
-        <td><%= resume.training %></td>
-        <td><%= resume.contactperson %></td>
-        <td><%= link_to 'Show', resume %></td>
-        <td><%= link_to 'Edit', edit_resume_path(resume) %></td>
-        <td><%= link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Resume', new_resume_path %>
+	<%= link_to 'New Resume', new_resume_path %>
 -->

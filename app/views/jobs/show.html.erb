@@ -1,102 +1,128 @@
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><%= link_to "หน้าแรก", root_path %></li>
-            <li><%= link_to "ค้นหางาน", controller: "jobs", action: "index" %></li>
-            <li class="active"><%= "ตำแหน่ง #{@job.position} ที่ #{@job.organizationname}" %></li>
-          </ol>
-        </div>
+<div class="row">
+	<div class="col-md-12">
+		<ol class="breadcrumb">
+			<li><%= link_to "หน้าแรก", root_path %></li>
+			<li><%= link_to "ค้นหางาน", controller: "jobs", action: "index" %></li>
+			<li class="active"><%= "ตำแหน่ง #{@job.position} ที่ #{@job.organizationname}" %></li>
+		</ol>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="col-md-8">
+		<div class="paper">
+			<div class="path-header">
+				<h1 class="job_header"> ตำแหน่ง <%= @job.position %></h1>
+			</div>
+			<div class="path-body">
+				<h3>รายละเอียดบริษัท</h3>
+				<p>บริษัท <%= @job.organizationname %> สาขา <%= @job.branch %></p>
+			</div>
+			<div class="path-body">
+				<h3>ประเภทความพิการที่เปิดรับ</h3>
+				<p>
+				<ul>
+					<% @job.disabilities.each do |disability| %>
+						<li><%= disability.name %></li>
+					<% end %>
+				</ul>
+				</p>
+			</div>
+			<div class="path-body">
+				<h3>ตำแหน่งที่เปิดรับ</h3>
+				<p><%= @job.position %></p>
+			</div><div class="path-body">
+				<h3>ประเภทงาน</h3>
+				<p><%= @job.jobtype.name %></p>
+			</div>
+			<div class="path-body">
+				<h3>รายละเอียดงาน</h3>
+				<p><%= @job.info %></p>
+			</div>
+			<div class="path-body">
+				<h3>อัตราที่เปิดรับ</h3>
+				<p><%= @job.amount %> ตำแหน่ง</p>
+			</div>
+			<div class="path-body">
+				<h3>เพศ</h3>
+				<p>
+				<ul>
+					<% @job.sexes.each do |sex| %>
+						<li><%= sex.name %></li>
+					<% end %>
+				</ul>
+				</p>
+			</div>
+			<div class="path-body">
+				<h3>ระดับการศึกษา</h3>
+				<p><%= @job.education %></p>
+			</div>
+			<div class="path-body">
+				<h3>อายุ</h3>
+				<p><%= @job.agefrom %> ถึง <%= @job.ageto %> ปี</p>
+			</div>
+			<div class="path-body">
+				<h3>สวัสดิการ</h3>
+				<p>
+				<ul>
+					<% @job.welfares.each do |welfare| %>
+						<li><%= welfare.name %></li>
+					<% end %>
+				</ul>
+				</p>
+			</div>
+      <div class="path-body">
+        <h3>ค่าตอบแทน</h3>
+        <p><%= @job.wagefrom %> ถึง <%= @job.wageto %> บาท</p>
+      </div>
+			<div class="path-body">
+				<h3>ติดต่อได้ที่</h3>
+				<p>
+				<strong>บริษัท:</strong> <%= @job.organizationname %><br>
+				<strong>ที่อยู่:</strong> <%= @job.address %><br>
+				<strong>โทร:</strong> <%= @job.phone %><br>
+				<strong>อีเมล์:</strong> <%= @job.user.email %>
+			</p>
+			</div>
+
+      <div class="path-body">
+        <h3>เอกสารที่ต้องใช้</h3>
+        <p>
+        <ul>
+          <% @job.documents.each do |document| %>
+            <li><%= document.name %></li>
+          <% end %>
+        </ul>
+        </p>
       </div>
 
-      <div class="row">
-
-        <div class="col-md-8">
-          <div class="paper">
-            <div class="path-header">
-              <h1 class="job_header"> ตำแหน่ง <%= @job.position %></h1>
-            </div>
-            <div class="path-body">
-              <h3>รายละเอียดบริษัท</h3>
-              <p>บริษัท <%= @job.organizationname %> สาขา <%= @job.branch %></p>
-            </div>
-            <div class="path-body">
-              <h3>ประเภทความพิการที่เปิดรับ</h3>
-              <p>
-                <ul>
-                <% @job.disabilities.each do |disability| %>
-                  <li><%= disability.name %></li>
-                <% end %>
-                </ul>
-              </p>
-            </div>
-            <div class="path-body">
-              <h3>ตำแหน่งที่เปิดรับ</h3>
-              <p><%= @job.position %></p>
-            </div><div class="path-body">
-              <h3>ประเภทงาน</h3>
-              <p><%= @job.jobtype.name %></p>
-            </div>
-            <div class="path-body">
-              <h3>รายละเอียดงาน</h3>
-              <p><%= @job.info %></p>
-            </div>
-            <div class="path-body">
-              <h3>อัตราที่เปิดรับ</h3>
-              <p><%= @job.amount %> ตำแหน่ง</p>
-            </div>
-            <div class="path-body">
-              <h3>เพศ</h3>
-              <p>
-                <ul>
-                  <% @job.sexes.each do |sex| %>
-                    <li><%= sex.name %></li>
-                  <% end %>
-                </ul>
-              </p>
-            </div>
-            <div class="path-body">
-              <h3>ระดับการศึกษา</h3>
-              <p><%= @job.education %></p>
-            </div>
-            <div class="path-body">
-              <h3>อายุ</h3>
-              <p><%= @job.age %></p>
-            </div>
-            <div class="path-body">
-              <h3>สวัสดิการ</h3>
-              <p>
-                <ul>
-                <% @job.welfares.each do |welfare| %>
-                  <li><%= welfare.name %></li>
-                <% end %>
-                </ul>
-              </p>
-            </div>
-            <div class="path-body">
-              <h3>ติดต่อได้ที่</h3>
-              <p>
-                <strong>บริษัท:</strong> <%= @job.organizationname %><br>
-                <strong>ที่อยู่:</strong> <%= @job.address %><br>
-                <strong>โทร:</strong> <%= @job.phone %><br>
-                <strong>อีเมล์:</strong> <%= @job.user.email %>
-              </p>
-            </div>
-
-            <div class="path-footer">
-              <% if user_signed_in? && current_user.role_id == 2 %>
-                <%= link_to "สมัครงานนี้", {controller: "jobs", action: "send_job_mail", email: @job.user.email, jobposition: @job.position, joborganization: @job.organizationname}, class: "btn btn-primary" %>
-              <% end %>
-              <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
-              <% if user_signed_in? && (current_user.id == @job.user_id or current_user.role_id == 3) %>
-                <%= link_to edit_job_path, class: "btn btn-warning" do %>
-                  <span class="glyphicon glyphicon-edit"></span> แก้ไขประกาศงาน
-                <% end %>
-                <%= link_to @job, method: :delete, data: {confirm: 'ต้องการลบประกาศงานหรือไม่?'}, class: "btn btn-danger" do %>
-                  <span class="glyphicon glyphicon-trash"></span> ลบ
-                <% end %>
-              <% end %>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
+      <div class="path-body">
+        <h3>วิธีการสมัคร</h3>
+        <p>
+        <ul>
+          <% @job.toapplies.each do |toapply| %>
+            <li><%= toapply.name %></li>
+          <% end %>
+        </ul>
+        </p>
       </div>
+
+			<div class="path-footer">
+				<% if user_signed_in? && current_user.role_id == 2 %>
+					<%= link_to "สมัครงานนี้", {controller: "jobs", action: "send_job_mail", email: @job.user.email, jobposition: @job.position, joborganization: @job.organizationname}, class: "btn btn-primary" %>
+				<% end %>
+				<a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
+				<% if user_signed_in? && (current_user.id == @job.user_id or current_user.role_id == 3) %>
+					<%= link_to edit_job_path, class: "btn btn-warning" do %>
+						<span class="glyphicon glyphicon-edit"></span> แก้ไขประกาศงาน
+					<% end %>
+					<%= link_to @job, method: :delete, data: {confirm: 'ต้องการลบประกาศงานหรือไม่?'}, class: "btn btn-danger" do %>
+						<span class="glyphicon glyphicon-trash"></span> ลบ
+					<% end %>
+				<% end %>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

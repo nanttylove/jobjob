@@ -88,21 +88,34 @@
         <div class="form-group">
           <%= f.label :province_id, "จังหวัด", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name, @job.province_id), select: f.object.province_id, class: "form-control" %>
+            <%= f.select :province_id, options_from_collection_for_select(Province.all, :id, :name, @job.province_id), {}, { select: f.object.province_id, class: "form-control" } %>
           </div>
         </div>
 
         <div class="form-group">
           <%= f.label :education, "ระดับการศึกษา", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :education, options_for_select(([ "ต่ำกว่าประถมศึกษา", "ประถมศึกษา", "มัธมศึกษาตอนต้น", "มัธยมศึกษาตอนปลาย", "ปวช", "ปวส", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่นๆ" ]), @job.education), class: "form-control" %>
+            <%= f.select :education, options_for_select(([ "ต่ำกว่าประถมศึกษา", "ประถมศึกษา", "มัธมศึกษาตอนต้น", "มัธยมศึกษาตอนปลาย", "ปวช", "ปวส", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่นๆ" ]), @job.education), {}, { class: "form-control" } %>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :age, "อายุ", class: "col-md-4" %>
+          <label for="" class="col-md-4">อายุ</label>
           <div class="col-md-6">
-            <%= f.select :age, options_for_select(([ "15-20 ปี", "21-25 ปี", "26-30 ปี", "31-35 ปี", "36-40 ปี", "41-45 ปี", "45 ปีขึ้นไป" ]), @job.age), class: "form-control" %>
+            <div class="row">
+              <div class="col-md-4">
+                <%= f.number_field :agefrom, class: "form-control", placeholder: "อายุ" %>
+              </div>
+              <div class="col-md-1 text-center">
+                <span>-</span>
+              </div>
+              <div class="col-md-4">
+                <%= f.number_field :ageto, class: "form-control", placeholder: "อายุ" %>
+              </div>
+              <div class="col-md-1 text-center">
+                  <span>ปี</span>
+              </div>              
+            </div>
           </div>
         </div>
 
@@ -130,28 +143,53 @@
         <div class="form-group">
           <%= f.label :jobtype_id, "ประเภทงาน", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :jobtype_id, options_from_collection_for_select(Jobtype.all, :id, :name, @job.jobtype_id), select: f.object.jobtype_id, class: "form-control" %>            
+            <%= f.select :jobtype_id, options_from_collection_for_select(Jobtype.all, :id, :name, @job.jobtype_id), {}, {select: f.object.jobtype_id, class: "form-control"} %>            
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :wage, "ค่าตอบแทน", class: "col-md-4" %>
+          <label for="" class="col-md-4">ค่าตอบแทน</label>
           <div class="col-md-6">
-            <%= f.select :wage, options_for_select(([ "ต่ำกว่า 7500", "7500-10,000", "10,000-15,000", "15,000-20,000", "20,000-25,000", "มากกว่า 25,000" ]), @job.wage), class: "form-control" %>
+            <div class="row">
+              <div class="col-md-4">
+                <%= f.number_field :wagefrom, class: "form-control", placeholder: "ค่าตอบแทน" %>
+              </div>
+              <div class="col-md-1 text-center">
+                <span>-</span>
+              </div>
+              <div class="col-md-4">
+                <%= f.number_field :wageto, class: "form-control", placeholder: "ค่าตอบแทน" %>
+              </div>
+              <div class="col-md-1 text-center">
+                <span>บาท</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="form-group">
-          <%= f.label :document, "เอกสารที่ต้องใช้", class: "col-md-4" %>
+          <%= f.label :document_ids, "เอกสารที่ต้องใช้", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :document, rows: 5, class: "form-control", placeholder: "เอกสารที่ต้องใช้" %>
-          </div>          
+            <%= f.collection_check_boxes(:document_ids, Document.all, :id, :name) do |b| %>
+              <div class="checkbox">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>       
         </div>
 
         <div class="form-group">
-          <%= f.label :apply, "วิธีการสมัคร", class: "col-md-4" %>
+          <%= f.label :toapply_ids, "วิธีการสมัคร", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.text_area :apply, rows: 5, class: "form-control", placeholder: "วิธีการสมัคร" %>
+            <%= f.collection_check_boxes(:toapply_ids, Toapply.all, :id, :name) do |b| %>
+              <div class="checkbox">
+              <%= b.label do %>
+                <%= b.check_box + b.text %>
+              <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
 

@@ -1,86 +1,54 @@
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><%= link_to "หน้าแรก", root_path %></li>
-            <li class="active">บริษัท</li>
-          </ol>
-        </div>
-      </div>
+<div class="row">
+<div class="col-md-12">
+	<ol class="breadcrumb">
+		<li><%= link_to "หน้าแรก", root_path %></li>
+		<li class="active">บริษัท</li>
+	</ol>
+</div>
+</div>
 
-      <div class="row">
-        <div class="col-md-8">
-          <div class="page-header">
-            <h1>บริษัทที่เป็นสมาชิก</h1>
-          </div>
+<div class="row">
+	<div class="col-md-8">
+		<div class="page-header">
+			<h1>บริษัทที่เป็นสมาชิก</h1>
+		</div>
 
-          <% if user_signed_in? && current_user.role_id == 2 %>
-            <div class="row">
-              <div class="col-md-12">
-                <%= link_to new_company_path, class: "btn btn-primary" do %>
-                  <span class="glyphicon glyphicon-edit"></span> เพิ่มข้อมูลบริษัท
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+		<% if user_signed_in? && current_user.role_id == 2 %>
+			<div class="row">
+				<div class="col-md-12">
+					<%= link_to new_company_path, class: "btn btn-primary" do %>
+						<span class="glyphicon glyphicon-edit"></span> เพิ่มข้อมูลบริษัท
+					<% end %>
+				</div>
+			</div>
+		<% end %>
 
-          <div>
-            <ul class="list-card">
-              <% @companies.each do |company| %>
-              <li class="card">
-                <div class="card-content">
-                  <h3 class="card-header">
-                    <%= link_to company.name, company %>
-                  </h3>
-                  <!-- <p class="card-sub-header">10 พฤศจิกายน 2557</p> -->
-                  <div class="card-body">
-                    <b>หน่วยงาน: </b><%= company.name %><br>
-                    <b>สาขา: </b><%= company.branch %><br>
-                    <b>สถานที่ปฏิบัติงาน: </b><%= company.address %><br>
-                    <b>โทรศัพท์: </b><%= company.phone %>
-                  </div>
-                </div>
-                <hr>
-              </li>
-              <% end %>
-            </ul>
-            <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+		<div>
+			<ul class="list-card">
+				<% @companies.each do |company| %>
+					<li class="card">
+						<div class="card-content">
+							<h3 class="card-header">
+								<%= link_to company.name, company %>
+							</h3>
+							<!-- <p class="card-sub-header">10 พฤศจิกายน 2557</p> -->
+							<div class="card-body">
+								<b>หน่วยงาน: </b><%= company.name %><br>
+								<b>สาขา: </b><%= company.branch %><br>
+								<b>สถานที่ปฏิบัติงาน: </b><%= company.address %><br>
+								<b>โทรศัพท์: </b><%= company.phone %>
+						</div>
+						</div>
+						<hr>
+					</li>
+				<% end %>
+			</ul>
+			<%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
 
-          </div>
-        </div>
-      </div>
+		</div>
+	</div>
+</div>
 
 <!--
-<h1>Listing Companies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Branch</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.user_id %></td>
-        <td><%= company.name %></td>
-        <td><%= company.branch %></td>
-        <td><%= company.address %></td>
-        <td><%= company.phone %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+	<%= link_to 'New Company', new_company_path %>
 -->

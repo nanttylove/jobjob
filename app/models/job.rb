@@ -33,6 +33,8 @@ class Job < ActiveRecord::Base
   has_and_belongs_to_many :sexes
   has_and_belongs_to_many :disabilities
   has_and_belongs_to_many :welfares
+  has_and_belongs_to_many :documents
+  has_and_belongs_to_many :toapplies
 
   scope :jobtype, -> (jobtype) { where jobtype: jobtype }
   scope :province, -> (province) { where province: province }

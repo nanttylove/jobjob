@@ -1,73 +1,47 @@
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><%= link_to "หน้าแรก", root_path %></li>
-            <li><%= link_to "บริษัท", controller: "companies", action: "index" %></li>
-            <li class="active"><%= @company.name %></li>
-          </ol>
-        </div>
-      </div>
+<div class="row">
+<div class="col-md-12">
+	<ol class="breadcrumb">
+		<li><%= link_to "หน้าแรก", root_path %></li>
+		<li><%= link_to "บริษัท", controller: "companies", action: "index" %></li>
+		<li class="active"><%= @company.name %></li>
+	</ol>
+</div>
+</div>
 
-      <div class="row">
+<div class="row">
+	<div class="col-md-8">
+		<div class="paper">
+			<div class="path-header">
+				<h1 class="job_header"><%= @company.name %></h1>
+			</div>
+			<div class="path-body">
+				<h2>รายละเอียดบริษัท</h2>
+				<p>
+				<strong>บริษัท</strong> <%= @company.name %><br>
+				<strong>สาขา</strong> <%= @company.branch %>
+			</p>
+			</div>
+			<div class="path-body">
+				<h2>ติดต่อ</h2>
+				<p>
+				<strong>ที่อยู่</strong> <%= @company.address %><br>
+				<strong>โทรศัพท์</strong> <%= @company.phone %>
+			</p>
+			</div>
 
-        <div class="col-md-8">
-          <div class="paper">
-            <div class="path-header">
-              <h1 class="job_header"><%= @company.name %></h1>
-            </div>
-            <div class="path-body">
-              <h2>รายละเอียดบริษัท</h2>
-              <p>
-                <strong>บริษัท</strong> <%= @company.name %><br>
-                <strong>สาขา</strong> <%= @company.branch %>
-              </p>
-            </div>
-            <div class="path-body">
-              <h2>ติดต่อ</h2>
-              <p>
-                <strong>ที่อยู่</strong> <%= @company.address %><br>
-                <strong>โทรศัพท์</strong> <%= @company.phone %>
-              </p>
-            </div>
-
-            <div class="path-footer">
-              <a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
-              <% if user_signed_in? && current_user.id == @company.user_id %>
-                <%= link_to edit_company_path, class: "btn btn-warning" do %>
-                  <span class="glyphicon glyphicon-edit"></span> แก้ไขข้อมูลบริษัท
-                <% end %>
-              <% end %>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
+			<div class="path-footer">
+				<a href="javascript:window.print()" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> พิมพ์</a>
+				<% if user_signed_in? && current_user.id == @company.user_id %>
+					<%= link_to edit_company_path, class: "btn btn-warning" do %>
+						<span class="glyphicon glyphicon-edit"></span> แก้ไขข้อมูลบริษัท
+					<% end %>
+				<% end %>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
 <!--
-<p>
-  <strong>User:</strong>
-  <%= @company.user_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Branch:</strong>
-  <%= @company.branch %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @company.phone %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+	<%= link_to 'Edit', edit_company_path(@company) %> |
+	<%= link_to 'Back', companies_path %>
 -->
