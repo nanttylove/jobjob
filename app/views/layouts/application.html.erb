@@ -59,7 +59,7 @@
                     <% end %>
                   <% end %>
                   <% if current_user.role_id == 2 %>
-                    <% unless current_user.role_id == 2 %>
+                    <% unless current_user.resume == nil %>
                       <%= "คุณ #{current_user.resume.fname} #{current_user.resume.lname}" %>
                     <% else %>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">บัญชีผู้ใช้ผู้หางาน <span class="glyphicon glyphicon-user"></span></a>
