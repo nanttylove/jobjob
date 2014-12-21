@@ -5,6 +5,35 @@
         <h1 class="panel-title">ประกาศงาน</h1>
       </div>
       <div class="panel-body">
+      <%= javascript_tag do %>
+        $(document).ready(function() {
+        $("#job_welfare_ids_36").change(enable_morewelfare);
+        $("#job_document_ids_5").change(enable_moredocument);
+        $("#job_toapply_ids_4").change(enable_moretoapply);
+        });
+
+        function enable_morewelfare() {
+          if (this.checked) {
+            $("#job_morewelfare").removeAttr("disabled");
+          } else {
+            $("#job_morewelfare").attr("disabled", true);
+          }
+        }
+        function enable_moredocument() {
+          if (this.checked) {
+            $("#job_moredocument").removeAttr("disabled");
+          } else {
+            $("#job_moredocument").attr("disabled", true);
+          }
+        }
+        function enable_moretoapply() {
+          if (this.checked) {
+            $("#job_moretoapply").removeAttr("disabled");
+          } else {
+            $("#job_moretoapply").attr("disabled", true);
+          }
+        }
+      <% end %>
 
       <%= form_for(@job, html: {class: "form-horizontal"}) do |f| %>
         <% if @job.errors.any? %>
@@ -65,9 +94,11 @@
               <% end %>
               </div>
             <% end %>
+            <br>
+            <%= f.text_field :morewelfare, class: "form-control", placeholder: "อื่นๆ", disabled: true %>
           </div>
         </div>
-  
+
         <!--
         <div class="field">
           <%= f.label :organizationname %><br>
@@ -84,7 +115,7 @@
           <%= f.text_area :address %>
         </div>
         -->
-  
+
         <div class="form-group">
           <%= f.label :province_id, "จังหวัด", class: "col-md-4" %>
           <div class="col-md-6">
@@ -114,7 +145,7 @@
               </div>
               <div class="col-md-1 text-center">
                   <span>ปี</span>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +174,7 @@
         <div class="form-group">
           <%= f.label :jobtype_id, "ประเภทงาน", class: "col-md-4" %>
           <div class="col-md-6">
-            <%= f.select :jobtype_id, options_from_collection_for_select(Jobtype.all, :id, :name, @job.jobtype_id), {}, {select: f.object.jobtype_id, class: "form-control"} %>            
+            <%= f.select :jobtype_id, options_from_collection_for_select(Jobtype.all, :id, :name, @job.jobtype_id), {}, {select: f.object.jobtype_id, class: "form-control"} %>
           </div>
         </div>
 
@@ -177,7 +208,9 @@
               <% end %>
               </div>
             <% end %>
-          </div>       
+            <br>
+            <%= f.text_field :moredocument, class: "form-control", placeholder: "อื่นๆ", disabled: true %>
+          </div>
         </div>
 
         <div class="form-group">
@@ -190,6 +223,8 @@
               <% end %>
               </div>
             <% end %>
+            <br>
+            <%= f.text_field :moretoapply, class: "form-control", placeholder: "อื่นๆ", disabled: true %>
           </div>
         </div>
 
@@ -198,7 +233,7 @@
             <%#= f.submit %>
             <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
               <span class="glyphicon glyphicon-edit"></span> บันทึกข้อมูลประกาศงาน
-            <% end %>            
+            <% end %>
           </div>
         </div>
 

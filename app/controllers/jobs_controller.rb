@@ -35,7 +35,7 @@ class JobsController < ApplicationController
     @job.branch = current_user.company.branch
     @job.address = current_user.company.address
     @job.phone = current_user.company.phone
-    
+
     if @job.save
       @job.resumes.uniq.each do |resume|
         NotificationMailer.job_post_notification(resume.user, @job).deliver
@@ -74,7 +74,7 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.require(:job).permit(:user_id, {:sex_ids => []}, {:disability_ids => []}, {:welfare_ids => []}, :organizationname, :branch, :address, :province_id, :education, :age, :position, :info, :jobtype_id, :wage, :document, :apply, :phone, :amount, :agefrom, :ageto, :wagefrom, :wageto, {:document_ids => []}, {:toapply_ids => []})
+      params.require(:job).permit(:user_id, {:sex_ids => []}, {:disability_ids => []}, {:welfare_ids => []}, :organizationname, :branch, :address, :province_id, :education, :age, :position, :info, :jobtype_id, :wage, :document, :apply, :phone, :amount, :agefrom, :ageto, :wagefrom, :wageto, {:document_ids => []}, {:toapply_ids => []}, :morewelfare, :moredocument, :moretoapply)
     end
 
     def require_user

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219011521) do
+ActiveRecord::Schema.define(version: 20141221073421) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -102,6 +102,9 @@ ActiveRecord::Schema.define(version: 20141219011521) do
     t.integer  "wageto"
     t.integer  "document_ids"
     t.integer  "toapply_ids"
+    t.string   "morewelfare"
+    t.string   "moredocument"
+    t.string   "moretoapply"
   end
 
   create_table "jobs_sexes", id: false, force: true do |t|

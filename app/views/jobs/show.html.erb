@@ -69,6 +69,11 @@
 					<% @job.welfares.each do |welfare| %>
 						<li><%= welfare.name %></li>
 					<% end %>
+          <% if @job.morewelfare != nil and @job.morewelfare != '' %>
+            <ul>
+              <li><%= @job.morewelfare %></li>
+            </ul>
+          <% end %>
 				</ul>
 				</p>
 			</div>
@@ -93,6 +98,11 @@
           <% @job.documents.each do |document| %>
             <li><%= document.name %></li>
           <% end %>
+          <% if @job.moredocument != nil and @job.moredocument != '' %>
+            <ul>
+              <li><%= @job.moredocument %></li>
+            </ul>
+          <% end %>
         </ul>
         </p>
       </div>
@@ -103,6 +113,11 @@
         <ul>
           <% @job.toapplies.each do |toapply| %>
             <li><%= toapply.name %></li>
+          <% end %>
+          <% if @job.moretoapply != nil and @job.moretoapply != '' %>
+            <ul>
+              <li><%= @job.moretoapply %></li>
+            </ul>
           <% end %>
         </ul>
         </p>
